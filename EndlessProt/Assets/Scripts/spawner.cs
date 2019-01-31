@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class spawner : MonoBehaviour {
 
-	public Transform[] spawnPoints;
-	public Block Block;
+    public Transform[] spawnPoints;
+	public Block[] traffic;
 	
 	public float timeBetweenWaves = 1f;
 	public float timeToSpawn = 2f;
@@ -31,7 +31,8 @@ public class spawner : MonoBehaviour {
 		{
 			if(randomIndex != i)
 			{
-				Block b = Instantiate<Block>(Block, spawnPoints[i].position, Quaternion.identity);
+                int randomTraffic = Random.Range(0, traffic.Length);
+                Block b = Instantiate<Block>(traffic[randomTraffic], spawnPoints[i].position,spawnPoints[i].rotation);
 				GameManager.current.RegisterBlock(b);
 			}
 		}

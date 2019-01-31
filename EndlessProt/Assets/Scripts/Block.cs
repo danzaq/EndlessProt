@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Block : MonoBehaviour {
 
-	public float massScale = 20f;
+    public float massScale = 20f;
 	// Use this for initialization
 	void Start () {
 		GetComponent<Rigidbody>().mass += Time.timeSinceLevelLoad / massScale;
