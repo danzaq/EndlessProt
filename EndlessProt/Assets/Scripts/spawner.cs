@@ -41,7 +41,11 @@ public class spawner : MonoBehaviour {
     IEnumerator increaseDifficulty()
     {
         yield return new WaitForSeconds(3f);
-        timeBetweenWaves = timeBetweenWaves - difficulty;
+        if (timeBetweenWaves > 0.45)
+        {
+            timeBetweenWaves = timeBetweenWaves - difficulty;
+        }
+        
         StartCoroutine(Repeat());
     }
     IEnumerator Repeat()
