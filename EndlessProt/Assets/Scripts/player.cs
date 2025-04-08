@@ -16,7 +16,7 @@ public class player : MonoBehaviour {
 	}
 	void FixedUpdate()
 	{
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        /*if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
              Touch touch = Input.GetTouch(0);
              Vector3 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
@@ -28,11 +28,11 @@ public class player : MonoBehaviour {
              newPosition.y = Mathf.Clamp(newPosition.y, -2, -2);
 
              rb.MovePosition(newPosition);
-         }
-		//float x = Input.GetAxis("Horizontal") * Time.fixedDeltaTime * speed;
-        //Vector3 newPosition = rb.position + Vector3.right * x;
-        //newPosition.x = Mathf.Clamp(newPosition.x, -mapWidth, mapWidth);
-        //rb.MovePosition(newPosition);
+         }*/
+		float x = Input.GetAxis("Horizontal") * Time.fixedDeltaTime * speed;
+        Vector3 newPosition = rb.position + Vector3.right * x;
+        newPosition.x = Mathf.Clamp(newPosition.x, -mapWidth, mapWidth);
+        rb.MovePosition(newPosition);
 	} 
 
 	
